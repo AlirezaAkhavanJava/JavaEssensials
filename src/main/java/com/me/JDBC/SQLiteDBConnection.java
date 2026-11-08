@@ -9,5 +9,6 @@ public interface SQLiteDBConnection {
 
     void insertValue(String value) throws SQLException;
 
+    void updateNameValue(String oldValue,String newValue) throws NullPointerException, InterruptedException, SQLException;
 
 }

@@ -33,4 +33,8 @@ public class ConnectionExecutor {
     public void insertValue(String value) {
         execute("insert value '" + value + "'", () -> connection.insertValue(value));
     }
+
+    public void updateNameValue(String oldValue, String newValue) {
+        execute("update value" + oldValue + " " + newValue, () -> connection.updateNameValue(oldValue, newValue));
+    }
 }

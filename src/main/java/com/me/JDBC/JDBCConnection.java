@@ -33,4 +33,17 @@ public class JDBCConnection extends ConnectionProvider {
         statement.executeUpdate();
         System.out.println(message);
     }
+
+    @Override
+    public void updateNameValue(String oldValue, String newValue) throws SQLException {
+        String sql = "UPDATE task SET name = ? WHERE name = ?";
+
+        PreparedStatement statement = dataSource.prepareStatement(sql);
+        statement.setString(1, newValue);  // SET name = new
+        statement.setString(2, oldValue);  // WHERE name = old
+
+        int rows = statement.executeUpdate();
+        System.out.println("\u001B[32m" + rows + " row(s) updated".toUpperCase() + "\u001B[0m");
+
+    }
 }
