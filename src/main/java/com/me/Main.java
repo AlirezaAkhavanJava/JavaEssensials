@@ -1,11 +1,11 @@
 package com.me;
 
-import com.me.JDBC.Database;
-import com.me.JDBC.UsingStatement;
+import com.me.JDBC.ConnectionExecutor;
 
 public class Main {
     static void main() {
-        Database database = new UsingStatement();
-        database.preparedInsert("Kill yourself");
+        ConnectionExecutor executor = new ConnectionExecutor();
+        //executor.table();
+        executor.insertValue("Catch a Fish");
     }
 }
