@@ -8,12 +8,14 @@ public abstract class DataSourceConfiguration implements Database {
 
     Connection dataSource;
 
-    @Override
-    public void makeConnection(String url) {
-        try {
-            dataSource = DriverManager.getConnection(url);
-        } catch (SQLException | NullPointerException e) {
-            System.out.println("EXCEPTION : " + e.getLocalizedMessage());
-        }
+    protected DataSourceConfiguration() throws SQLException {
+        dataSource = DriverManager.getConnection("jdbc:sqlite:lite.db");
     }
+
+
+    @Override
+    public void makeConnection() {
+
+    }
+
 }

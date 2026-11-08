@@ -1,5 +1,6 @@
 package com.me.JDBC;
 
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -33,4 +34,19 @@ public class UsingStatement extends DataSourceConfiguration {
             System.out.println("Message " + e.getLocalizedMessage().toUpperCase());
         }
     }
+
+    @Override
+    public void preparedInsert(String value) {
+        try {
+            String sql = "INSERT INTO todo(name) VALUES(?)";
+            PreparedStatement statement = super.dataSource.prepareStatement(sql);
+            statement.setString(1, value);
+            statement.executeUpdate();
+            System.out.println();
+
+        } catch (SQLException | NullPointerException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 }

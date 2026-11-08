@@ -5,11 +5,7 @@ import com.me.JDBC.UsingStatement;
 
 public class Main {
     static void main() {
-
         Database database = new UsingStatement();
-        database.makeConnection("jdbc:sqlite:lite.db");
-        database.createToDoTable();
-        database.insert();
-
+        database.preparedInsert("Kill yourself");
     }
 }
